@@ -1,0 +1,28 @@
+<mat-form-field>
+  <mat-label>Enter City</mat-label>
+  <input matInput placeholder="city" [formControl]="myCity" />
+  <mat-hint>Indian Rupee</mat-hint>
+  <span matPrefix>INR </span>
+  <span matSuffix>.00</span>
+  <mat-error *ngIf="myCity.hasError('required')">
+    city is required
+  </mat-error>
+</mat-form-field>
+<!-- <mat-radio-group [disabled]="this.isDisabled"> -->
+<mat-radio-group labelPosition="after">
+  <mat-radio-button value="m">Male</mat-radio-button>
+  <mat-radio-button value="f">Female</mat-radio-button>
+</mat-radio-group>
+<mat-form-field>
+  <textarea
+    matInput
+    placeholder="Comment"
+    [formControl]="commentText"
+    (change)="onchangecomment()"
+    [errorStateMatcher]="this.esMatcher"
+  >
+  </textarea>
+  <mat-error *ngIf="commentText.hasError('required')">
+    Empty Field not allowed
+  </mat-error>
+</mat-form-field>
